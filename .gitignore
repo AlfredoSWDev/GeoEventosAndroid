@@ -1,0 +1,22 @@
+# Android
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.codemagic
+*.apk
+*.aab
+
+# Kotlin
+*.class
+
+# Carpetas de build
+app/build/
+build/
+
+# Archivos locales sensibles
+local.properties
