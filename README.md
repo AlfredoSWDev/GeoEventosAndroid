@@ -70,7 +70,7 @@ app/src/main/java/com/alfredo/geoeventosandroid/
 
 ## Endpoints que Consume
 
-Todos los endpoints apuntan a [GeoEventosAPI](https://github.com/tu-usuario/GeoEventosAPI).
+Todos los endpoints apuntan a [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI).
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -106,7 +106,7 @@ data class EventoResponse(
 
 - Android Studio Hedgehog o superior
 - Android SDK 28+
-- [GeoEventosAPI](https://github.com/tu-usuario/GeoEventosAPI) corriendo localmente
+- [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI) corriendo localmente
 
 ### Pasos
 
@@ -130,10 +130,9 @@ private const val BASE_URL = "http://10.0.2.2:8080/"
 **4. Levantar la API:**
 
 Antes de correr la app asegúrate de que GeoEventosAPI esté corriendo:
-```bash
-cd GeoEventosAPI
-./gradlew bootRun
-```
+
+[GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI)
+
 
 **5. Correr la app:**
 - Conecta un emulador o dispositivo físico
@@ -177,8 +176,8 @@ cd GeoEventosAPI
 
 ## Repositorios del Proyecto
 
-| Repositorio | Descripción |
-|-------------|-------------|
-| [GeoEventosAPI](https://github.com/tu-usuario/GeoEventosAPI) | API REST Spring Boot |
-| [GeoEventosGUI](https://github.com/tu-usuario/GeoEventosGUI) | Cliente de escritorio Swing |
-| **GeoEventosAndroid** | Este repositorio — cliente móvil Android |
+| Repositorio                                                    | Descripción |
+|----------------------------------------------------------------|-------------|
+| [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI) | API REST Spring Boot |
+| [GeoEventosGUI](https://github.com/AlfredoSWDev/GeoEventosGUI)   | Cliente de escritorio Swing |
+| **GeoEventosAndroid**                                          | Este repositorio — cliente móvil Android |
