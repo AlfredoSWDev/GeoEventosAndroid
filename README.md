@@ -2,7 +2,7 @@
 
 Cliente móvil para la plataforma **GeoEventos**, desarrollado en Android con Kotlin y Jetpack Compose. Permite a los usuarios visualizar eventos geolocalizados en un mapa interactivo y consultar su detalle.
 
-> Este repositorio contiene únicamente el cliente Android. La lógica de negocio y el acceso a datos residen en [GeoEventosAPI](https://github.com/tu-usuario/GeoEventosAPI).
+> Este repositorio contiene únicamente el cliente Android. La lógica de negocio y el acceso a datos residen en [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI).
 
 ---
 
@@ -100,6 +100,70 @@ data class EventoResponse(
 
 ---
 
+## Testing
+
+El proyecto incluye una suite de tests dividida en dos capas:
+
+```
+app/src/
+├── test/java/com/alfredo/geoeventosandroid/        ← JVM (sin dispositivo)
+│   ├── model/
+│   │   ├── EventosViewModelTest.kt                 # Estado, selección, coordenadas
+│   │   └── FotoUrlValidationTest.kt                # Validación de URL de foto
+│   ├── dto/
+│   │   └── EventoResponseTest.kt                   # Contrato del DTO
+│   └── service/
+│       └── EventoApiServiceTest.kt                 # Endpoints + MockWebServer
+│
+└── androidTest/java/com/alfredo/geoeventosandroid/  ← Requiere emulador
+    └── PantallaMapaEventosUITest.kt                 # Compose UI tests
+```
+
+### Dependencias de test
+
+Añadir en `libs.versions.toml`:
+
+```toml
+[versions]
+coroutinesTest  = "1.7.3"
+archCoreTesting = "2.2.0"
+mockwebserver   = "4.12.0"
+
+[libraries]
+kotlinx-coroutines-test    = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test",  version.ref = "coroutinesTest"  }
+androidx-arch-core-testing = { group = "androidx.arch.core",    name = "core-testing",              version.ref = "archCoreTesting" }
+mockwebserver              = { group = "com.squareup.okhttp3",  name = "mockwebserver",             version.ref = "mockwebserver"   }
+```
+
+Añadir en `app/build.gradle.kts`:
+
+```kotlin
+// Unit tests (JVM)
+testImplementation(libs.junit)
+testImplementation(libs.kotlinx.coroutines.test)
+testImplementation(libs.androidx.arch.core.testing)
+testImplementation(libs.mockwebserver)
+
+// Instrumented tests (emulador)
+androidTestImplementation(libs.androidx.junit)
+androidTestImplementation(libs.androidx.espresso.core)
+androidTestImplementation(platform(libs.androidx.compose.bom))
+androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+debugImplementation(libs.androidx.compose.ui.test.manifest)
+```
+
+### Ejecutar los tests
+
+```bash
+# Solo JVM (rápido, sin emulador)
+./gradlew testDebugUnitTest
+
+# Instrumented (requiere emulador o dispositivo conectado)
+./gradlew connectedAndroidTest
+```
+
+---
+
 ## Cómo Correr el Proyecto
 
 ### Requisitos
@@ -112,7 +176,7 @@ data class EventoResponse(
 
 **1. Clonar el repositorio:**
 ```bash
-git clone https://github.com/tu-usuario/GeoEventosAndroid.git
+git clone https://github.com/AlfredoSWDev/GeoEventosAndroid.git
 ```
 
 **2. Abrir en Android Studio:**
@@ -132,7 +196,6 @@ private const val BASE_URL = "http://10.0.2.2:8080/"
 Antes de correr la app asegúrate de que GeoEventosAPI esté corriendo:
 
 [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI)
-
 
 **5. Correr la app:**
 - Conecta un emulador o dispositivo físico
@@ -176,8 +239,8 @@ Antes de correr la app asegúrate de que GeoEventosAPI esté corriendo:
 
 ## Repositorios del Proyecto
 
-| Repositorio                                                    | Descripción |
-|----------------------------------------------------------------|-------------|
+| Repositorio | Descripción |
+|-------------|-------------|
 | [GeoEventosAPI](https://github.com/AlfredoSWDev/GeoEventosAPI) | API REST Spring Boot |
-| [GeoEventosGUI](https://github.com/AlfredoSWDev/GeoEventosGUI)   | Cliente de escritorio Swing |
-| **GeoEventosAndroid**                                          | Este repositorio — cliente móvil Android |
+| [GeoEventosGUI](https://github.com/AlfredoSWDev/GeoEventosGUI) | Cliente de escritorio Swing |
+| **GeoEventosAndroid** | Este repositorio — cliente móvil Android |
