@@ -9,7 +9,7 @@ import com.alfredo.geoeventosandroid.client.RetrofitClient
 import com.alfredo.geoeventosandroid.dto.EventoResponse
 import kotlinx.coroutines.launch
 
-class EventosViewModel : ViewModel() {
+open class EventosViewModel : ViewModel() {
     var eventos by mutableStateOf<List<EventoResponse>>(emptyList())
     private set
 
@@ -21,7 +21,7 @@ class EventosViewModel : ViewModel() {
     }
 
 
-    fun cargarEventos(busqueda: String? = null) {
+    open fun cargarEventos(busqueda: String? = null) {
         viewModelScope.launch {
             try {
                 eventos = RetrofitClient.instance.listarEventos(busqueda)

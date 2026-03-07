@@ -5,9 +5,9 @@ data class EventoResponse(
     val nombreEvento: String,
     val valorEvento: String,
     val lugarEvento: String,
-    val vigenciaEvento: String?,
-    val descripcionEvento: String?,
-    val fotosEvento: String?,
-    val latitud: Double,  // <-- Nuevo
-    val longitud: Double  // <-- Nuevo
+    val vigenciaEvento: String? = null,
+    val descripcionEvento: String? = null,
+    val fotosEvento: String? = null,
+    val latitud: Double,
+    val longitud: Double
 )

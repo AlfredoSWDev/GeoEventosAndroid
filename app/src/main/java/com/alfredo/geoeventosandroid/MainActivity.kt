@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -92,7 +93,7 @@ fun PantallaMapaEventos(vm: EventosViewModel = viewModel()) {
                     vm.cargarEventos(it.ifBlank { null })
                 },
                 modifier    = Modifier.fillMaxWidth(),
-                placeholder = { Text("Buscar eventos...") },
+                placeholder = { Text(stringResource(R.string.buscar_eventos)) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                 colors      = TextFieldDefaults.colors(
                     focusedContainerColor   = Color.White,
@@ -128,7 +129,7 @@ fun PantallaMapaEventos(vm: EventosViewModel = viewModel()) {
                             fontWeight = FontWeight.Bold
                         )
                         IconButton(onClick = { vm.cerrarDetalle() }) {
-                            Icon(Icons.Default.Close, contentDescription = "Cerrar")
+                            Icon(Icons.Default.Close, contentDescription = stringResource(R.string.cerrar))
                         }
                     }
 
@@ -150,10 +151,10 @@ fun PantallaMapaEventos(vm: EventosViewModel = viewModel()) {
                     }
 
                     // Datos del evento
-                    FilaDetalle(label = "📍 Lugar",    valor = evento.lugarEvento)
-                    FilaDetalle(label = "💰 Valor",    valor = evento.valorEvento)
-                    FilaDetalle(label = "📅 Vigencia", valor = evento.vigenciaEvento ?: "—")
-                    FilaDetalle(label = "📝 Descripción", valor = evento.descripcionEvento ?: "—")
+                    FilaDetalle(label = stringResource(R.string.lugar),    valor = evento.lugarEvento)
+                    FilaDetalle(label = stringResource(R.string.valor),    valor = evento.valorEvento)
+                    FilaDetalle(label = stringResource(R.string.vigencia), valor = evento.vigenciaEvento ?: "—")
+                    FilaDetalle(label = stringResource(R.string.descripci_n), valor = evento.descripcionEvento ?: "—")
                 }
             }
         }

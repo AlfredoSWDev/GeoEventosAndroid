@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">GeoEventosAndroid</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name">GeoEventos</string>
+    <string name="title_activity_main">GeoEventos</string>
+    <string name="buscar_eventos">Buscar eventos...</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="lugar">📍 Lugar</string>
+    <string name="descripci_n">📝 Descripción</string>
+    <string name="vigencia">📅 Vigencia</string>
+    <string name="valor">💰 Valor</string>
 </resources>
